@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compendium of Wavelengths Symptoms</title>
+<meta name="description" content="A searchable catalogue of coined afflictions, logged weekly.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<a class="skip" href="#index">Skip to the index</a>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead-id">
+      <h1 id="site-title">Wavelengths</h1>
+      <p class="masthead-sub"><span id="site-sub"></span><span class="sep" id="site-sep" hidden>·</span><span id="site-blurb"></span></p>
+    </div>
+    <dl class="record-strip" id="record-strip" aria-label="Collection summary">
+      <div class="field"><dt>Records</dt><dd id="f-records">—</dd></div>
+      <div class="field"><dt>Unique symptoms</dt><dd id="f-unique">—</dd></div>
+      <div class="field"><dt>Sessions</dt><dd id="f-sessions">—</dd></div>
+      <div class="field field-wide"><dt>Span</dt><dd id="f-span">—</dd></div>
+      <div class="field"><dt>Last updated</dt><dd id="f-updated">—</dd></div>
+    </dl>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="specimen" id="specimen" aria-labelledby="specimen-label">
+    <div class="specimen-mount">
+      <p class="specimen-label" id="specimen-label">Specimen drawn at random</p>
+      <p class="specimen-name" id="specimen-name">—</p>
+      <p class="specimen-note" id="specimen-note"></p>
+      <p class="specimen-meta">
+        <span class="accession" id="specimen-id"></span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span id="specimen-date"></span>
+        <span id="specimen-repeat"></span>
+      </p>
+    </div>
+    <button type="button" class="btn" id="specimen-draw">Draw another</button>
+  </section>
+
+  <section class="coverage" aria-labelledby="coverage-label">
+    <div class="coverage-head">
+      <h2 class="coverage-label" id="coverage-label">Coverage by week</h2>
+      <p class="coverage-count" id="coverage-count"></p>
+    </div>
+    <div class="coverage-grid" id="coverage-grid"></div>
+    <ul class="legend">
+      <li><span class="sw sw-full" aria-hidden="true"></span>symptoms logged</li>
+      <li><span class="sw sw-empty" aria-hidden="true"></span>session logged, no symptoms</li>
+      <li><span class="sw sw-none" aria-hidden="true"></span>no record</li>
+    </ul>
+  </section>
+
+  <section class="controls" id="index" aria-label="Search and filter">
+    <div class="search-field">
+      <label class="vh" for="q">Search symptoms</label>
+      <input type="search" id="q" placeholder="Search symptoms, notes or dates…" autocomplete="off" spellcheck="false">
+      <button type="button" class="clear" id="q-clear" hidden aria-label="Clear search">×</button>
+    </div>
+
+    <div class="scope" role="group" aria-label="Which records to show">
+      <button type="button" class="seg" id="scope-latest" aria-pressed="true">Latest session</button>
+      <button type="button" class="seg" id="scope-all" aria-pressed="false">All records</button>
+    </div>
+
+    <details class="filters">
+      <summary>Session notes &amp; exclusions <span id="ex-badge"></span></summary>
+      <div class="filters-body">
+        <p class="hint">Entries whose text contains any of these are left out of the counts, the table and the random draw. Session notes and guest-host lines usually go here.</p>
+        <label class="vh" for="ex">Exclude entries containing</label>
+        <textarea id="ex" rows="2" placeholder="one term per line" autocomplete="off" spellcheck="false"></textarea>
+        <ul class="chips" id="ex-chips"></ul>
+        <p class="hint"><span id="ex-count">0</span> entries are excluded by the terms above. They stay in the record and can be read here:</p>
+        <ol class="notes" id="ex-list"></ol>
+        <p class="hint quiet">Terms typed here apply to your browser only. To make one permanent, add it to <code>exclude_contains</code> in <code>data/config.json</code>.</p>
+      </div>
+    </details>
+  </section>
+
+  <p class="result-line" id="result-line" role="status" aria-live="polite">Loading the index…</p>
+
+  <div class="table-wrap">
+    <table id="table">
+      <thead>
+        <tr>
+          <th scope="col" class="col-date sortable" data-sort="date" aria-sort="none">
+            <button type="button">Date <span class="arrow" aria-hidden="true"></span></button>
+          </th>
+          <th scope="col" class="col-name sortable" data-sort="name" aria-sort="none">
+            <button type="button">Symptom <span class="arrow" aria-hidden="true"></span></button>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <p class="empty" id="empty" hidden>No records match. Try a shorter search term.</p>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p id="foot-note"></p>
+    <p class="quiet">
+      Data file last changed <span id="foot-built">—</span><span id="foot-repo"></span>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

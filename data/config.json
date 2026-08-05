@@ -1,0 +1,14 @@
+{
+  "title": "Compendium of Wavelengths Symptoms",
+  "subtitle": "",
+  "blurb": "Symptoms read out by Clay Pigeon on Wake & Bake",
+  "accession_prefix": "WVL",
+  "expected_weekday": "Thursday",
+  "normalise_capitalisation": true,
+  "exclude_contains": [
+    "no symptoms mentioned",
+    "fills in"
+  ],
+  "repo_url": "",
+  "footer_note": "Records are transcribed by SpikeyBXL for fun. Nothing here is medical advice."
+}
