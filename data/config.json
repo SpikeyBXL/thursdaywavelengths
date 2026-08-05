@@ -7,7 +7,9 @@
   "normalise_capitalisation": true,
   "exclude_contains": [
     "no symptoms mentioned",
-    "fills in"
+    "fills in",
+    "guest hosts",
+    "marathon week"
   ],
   "repo_url": "",
   "footer_note": "Records are transcribed by SpikeyBXL for fun. Nothing here is medical advice."
