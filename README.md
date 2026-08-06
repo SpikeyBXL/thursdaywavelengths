@@ -170,4 +170,3 @@ every merge it made. Set `normalise_capitalisation` to `false` in
 - Press `/` to jump to the search box, `Esc` to clear it.
 - Sorting, searching and exclusions are stored in the URL, so any view can be
   linked or bookmarked.
-  - trivial commit line to force deployment
