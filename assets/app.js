@@ -354,6 +354,13 @@
 
   function renderSpecimen() {
     var pool = activeRows();
+    // Optional floor on the random draw. Everything stays searchable and
+    // counted — this only limits which records can be drawn at random.
+    var from = DATA.config.specimen_from;
+    if (from) {
+      var recent = pool.filter(function (r) { return r.date >= from; });
+      if (recent.length) pool = recent;   // ignore the floor if it empties the pool
+    }
     if (!pool.length) return;
     var r = pool[Math.floor(Math.random() * pool.length)];
     $("specimen-name").textContent = r.name;
