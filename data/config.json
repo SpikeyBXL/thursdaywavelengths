@@ -4,6 +4,7 @@
   "blurb": "Symptoms read out by Clay Pigeon on Wake & Bake",
   "accession_prefix": "WVL",
   "expected_weekday": "Thursday",
+  "specimen_from": "2019-06-20",
   "normalise_capitalisation": true,
   "exclude_contains": [
     "no symptoms mentioned",
