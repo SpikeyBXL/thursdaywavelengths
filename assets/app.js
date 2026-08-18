@@ -234,7 +234,11 @@
         note: parts[1],
         raw: r.item,
         key: key,
-        excluded: patterns.some(function (p) { return low.indexOf(p) !== -1; })
+        // A whole entry in brackets is an annotation about the show, not a
+        // symptom — "(Home lockdown edition)", "(Solo Wavelengths - lost the
+        // caller)". Treated as a session note without needing a keyword rule.
+        excluded: /^\(.*\)$/.test(r.item) ||
+                  patterns.some(function (p) { return low.indexOf(p) !== -1; })
       };
     });
   }
